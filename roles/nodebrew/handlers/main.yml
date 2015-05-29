@@ -1,0 +1,4 @@
+---
+- name: reload bashrc
+  shell: source ~/.bashrc
+

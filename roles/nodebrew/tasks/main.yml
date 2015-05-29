@@ -1,0 +1,43 @@
+---
+- name: install perl
+  yum: name=perl state=latest
+  sudo: yes
+
+- name: install libselinux-python
+  yum: name=libselinux-python state=latest
+  sudo: yes
+
+- name: install nodebrew
+  shell: curl -L git.io/nodebrew | perl - setup creates=~/.nodebrew
+
+- name: add nodebrew to bashrc
+  lineinfile: 
+    dest: ~/.bashrc
+    state: present
+    line: "export PATH=$HOME/.nodebrew/current/bin:$PATH"
+  # notify: reload bashrc
+
+
+# - name: reload .bashrc
+#   shell: source ~/.bashrc
+#   tags:
+#     - nodebrew
+
+- name: nodebrew install-binary
+  command: ~/.nodebrew/current/bin/nodebrew install-binary stable
+  ignore_errors: true
+  tags:
+    - nodebrew
+
+- name: nodebrew use
+  command: ~/.nodebrew/current/bin/nodebrew use stable
+  tags:
+    - nodebrew
+
+# - name: npm install -g bower
+#   npm: name=bower global=yes
+#   tags:
+#     - nodebrew
+
+
+

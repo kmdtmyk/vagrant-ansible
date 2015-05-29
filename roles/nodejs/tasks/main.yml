@@ -1,0 +1,14 @@
+---
+# - name: install epel
+#   yum: name=epel-release state=latest
+#   sudo: yes
+
+- name: install node.js
+  yum: name=nodejs state=latest
+  sudo: yes
+
+- name: install npm
+  yum: name=npm state=latest
+  sudo: yes
+
+

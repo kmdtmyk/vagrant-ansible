@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+
+    # - name: install git
+    #   yum: name=git state=latest
+    #   sudo: yes
+
+    # - name: install vim
+    #   yum: name=vim state=latest
+    #   sudo: yes
+
+  roles:
+    - git
+    - vim
+    - php
+    - nodebrew
+

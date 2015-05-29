@@ -1,0 +1,14 @@
+---
+- name: install epel
+  yum: name=epel-release state=latest
+  sudo: yes
+
+- name: install remi
+  yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
+  sudo: yes
+
+- name: install php
+  yum: name=php state=latest enablerepo=remi-php55
+  sudo: yes
+
+
