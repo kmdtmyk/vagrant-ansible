@@ -11,4 +11,6 @@
   yum: name=php state=latest enablerepo=remi-php55
   sudo: yes
 
-
+- name: install php-xml
+  yum: name=php-xml state=latest enablerepo=remi-php55
+  sudo: yes
